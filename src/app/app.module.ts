@@ -8,6 +8,9 @@ import { ChildrenComponent } from './children/children.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +18,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ButtonComponent,
     ParentComponent,
     ChildrenComponent,
+    AboutComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
         deps: [HttpClient],
       },
     }),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

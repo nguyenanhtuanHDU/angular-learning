@@ -1,3 +1,10 @@
+<div class="btn-group">
+  <a routerLink="/" class="btn btn-primary active" aria-current="page">Home</a>
+  <a routerLink="/about" class="btn btn-primary">About</a>
+  <a routerLink="/" class="btn btn-primary">Post</a>
+</div>
+
+
 <app-parent></app-parent>
 
 <h1>{{'demo.heading' | translate}}</h1>
@@ -5,8 +12,14 @@
 <button (click)="onTranslate('vi')">Vietnamese</button>
 <button (click)="onTranslate('en')">English</button>
 
-<a style="background-color: black; color: white; padding: 10px 20px;" routerLink="/">home</a>
-<a style="background-color: black; color: white; padding: 10px 20px;" routerLink="/about">about</a>
-<a style="background-color: black; color: white; padding: 10px 20px;" routerLink="/post">post</a>
+
+
 
 <router-outlet></router-outlet>
+
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user
+    activates the relevant trigger.
+  </div>
+</div>

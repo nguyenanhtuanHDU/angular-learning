@@ -4,6 +4,11 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
 import { TestGaurdGuard } from './test-gaurd.guard';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { SortableModule } from 'ngx-bootstrap/sortable';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,7 +17,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    TooltipModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    AccordionModule.forRoot(),
+    SortableModule.forRoot()
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

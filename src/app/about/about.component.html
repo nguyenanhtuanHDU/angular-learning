@@ -1,1 +1,112 @@
-<h1>About component</h1>
+<button type="button" class="btn btn-primary" tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Simple demo
+</button>
+
+<div class="btn-group" dropdown>
+  <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+    aria-controls="dropdown-basic">
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+    </li>
+  </ul>
+</div>
+
+
+<accordion [isAnimated]="true">
+  <accordion-group heading="Static Header">
+    This content is straight in the template.
+  </accordion-group>
+  <accordion-group heading="Another group">
+    <p>Some content</p>
+  </accordion-group>
+  <accordion-group heading="Another group">
+    <p>Some content</p>
+  </accordion-group>
+  <accordion-group heading="Another group">
+    <p>Some content</p>
+  </accordion-group>
+</accordion>
+
+
+<div *ngFor="let alert of alerts">
+  <alert [type]="alert.type" [dismissible]="dismissible" (onClosed)="onClosed(alert)">{{ alert.msg }}</alert>
+</div>
+<button type="button" class="btn btn-primary" (click)="dismissible = !dismissible">Toggle dismissible</button>
+<button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+
+<div class="row">
+  <div class="pr-3 pb-3 pe-3 w-auto">
+    <bs-datepicker-inline [bsValue]="bsInlineValue"></bs-datepicker-inline>
+  </div>
+  <div class="pr-3 pb-3 pe-3 w-auto">
+    <bs-daterangepicker-inline [bsValue]="bsInlineRangeValue"></bs-daterangepicker-inline>
+  </div>
+</div>
+
+<pagination [totalItems]="80"></pagination>
+
+<div class="mb-2">
+  <progressbar class="progress-striped active" [value]="136" type="danger"><i>136 / 150</i></progressbar>
+</div>
+
+<div>
+  <rating [max]="10" [(ngModel)]="x" [customTemplate]="t" style="color: #0275d8;font-size: 20px;"></rating>
+  <div class="card">
+    <pre class="card-block card-header" style="margin:15px 0;"><b>(<i>Rate:</i> {{x}})</b></pre>
+  </div>
+  <ng-template #t let-index="index" let-value="value">{{index < value ? '&#9745;' : '&#9744;' }}</ng-template>
+</div>
+
+<div>
+  <rating [max]="10" [(ngModel)]="y" [customTemplate]="tt"></rating>
+  <div class="card">
+    <pre class="card-block card-header" style="margin:15px 0;"> <b>(<i>Rate:</i> {{y}})</b> </pre>
+  </div>
+  <ng-template #tt let-i="index" let-v="value">
+    <button class="btn btn-{{i < v ? 'warning' : 'default'}}">
+      {{i < v ? '&#9733;' : '&#9734;' }} </button>
+  </ng-template>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-6 col-6 col-md-5 col-lg-3">
+    <bs-sortable [(ngModel)]="itemObjectsLeft" fieldName="name" itemClass="sortable-item"
+      itemActiveClass="sortable-item-active" placeholderItem="Drag here" placeholderClass="placeholderStyle text-center"
+      wrapperClass="sortable-wrapper"></bs-sortable>
+  </div>
+  <div class="col-xs-6 col-6 col-md-5 col-lg-3">
+    <bs-sortable [(ngModel)]="itemObjectsRight" fieldName="name" itemClass="sortable-item"
+      itemActiveClass="sortable-item-active" placeholderItem="Drag here" placeholderClass="placeholderStyle text-center"
+      wrapperClass="sortable-wrapper"></bs-sortable>
+  </div>
+</div>
+
+<div class='row'>
+  <div class="col-xs-6 col-6 col-md-5 col-lg-3">
+    <pre class="code-preview">model: {{ itemObjectsLeft | json }}</pre>
+  </div>
+
+  <div class="col-xs-6 col-6 col-md-5 col-lg-3">
+    <pre class="code-preview">model: {{ itemObjectsRight | json }}</pre>
+  </div>
+</div>
+
+<tabset>
+  <tab heading="Config 1">Config content 1</tab>
+  <tab heading="Config 2">Config content 2</tab>
+</tabset>
+
+<timepicker [mousewheel]="true" [showMeridian]="false" [(ngModel)]="myTime"  (isValid)="isValid = $event"></timepicker>
+<hr>
+
+<pre class="alert alert-info">Time is: {{myTime}}</pre>
+<pre *ngIf="!isValid" class="alert alert-danger">Invalid time format</pre>
+
+<button type="button" class="btn btn-danger" (click)="clear()">Clear</button>

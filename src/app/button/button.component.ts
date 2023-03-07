@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ButtonComponent {
   @Input() title = 'Button';
   @Input() mess = '';
+  @Input() inputId: string | undefined;
 
   logMess(mess: string) {
     console.log('>>> check mess: ', mess);

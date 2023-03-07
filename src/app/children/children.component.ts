@@ -12,5 +12,7 @@ export class ChildrenComponent implements OnInit {
     console.log('run');
   }
 
-
+  add() {
+    this.count += 1;
+  }
 }

@@ -11,4 +11,8 @@ export class PostService {
   getAlllPosts = () => {
     return this.http.get(this.url);
   };
+
+  loginFacebook(){
+    return this.http.get('http://localhost:8000/api/v1/auth/google')
+  }
 }
